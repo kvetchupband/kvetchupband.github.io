@@ -45,7 +45,7 @@ main {
 
 /* Layout helpers */
 .container {
-  width: min(1500px, 95%);
+  width: 95%;
   margin: 0 auto;
 }
 
