@@ -44,7 +44,7 @@ body {
 }
 
 main {
-  padding-top: 10px; 
+  padding-top: 90px;   /* enough space for the fixed header on desktop */
   flex: 1 0 auto;
 }
 
@@ -162,9 +162,11 @@ iframe {
 }
 
 /* MOBILE NAV: hamburger + dropdown */
+/* MOBILE NAV: hamburger + dropdown */
 @media (max-width: 720px) {
+  /* extra top padding because header is taller on mobile */
   main {
-    padding-top: 120px;  /* more space for wrapped nav */
+    padding-top: 120px;
   }
 
   .nav-container {
@@ -172,7 +174,14 @@ iframe {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    flex-wrap: nowrap; 
+    flex-wrap: nowrap;
+  }
+
+  /* make logo a bit smaller + keep on one line */
+  .logo {
+    font-size: 1.4rem;
+    letter-spacing: 0.12em;
+    white-space: nowrap;      /* prevent wrapping */
   }
 
   /* show the hotdog, turn nav into dropdown */
@@ -219,6 +228,7 @@ iframe {
     transform: translateY(-7px) rotate(-45deg);
   }
 }
+
 
 
 /* Hero section */
