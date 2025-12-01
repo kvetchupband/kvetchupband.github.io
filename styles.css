@@ -45,7 +45,7 @@ main {
 
 /* Layout helpers */
 .container {
-  width: 100%;
+  width: min(1300px, 98%);
   margin: 0 auto;
 }
 
@@ -90,7 +90,7 @@ main {
 
 .main-nav a {
   position: relative;
-  font-size: 0.8rem;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--light-text);
@@ -211,7 +211,7 @@ main {
 .section p {
   color: var(--light-text);
   margin-bottom: 0.75rem;
-  font-size: 1.1rem;       /* was 1.6rem – much more readable */
+  font-size: 1.3rem;       /* was 1.6rem – much more readable */
   text-align: justify;
 }
 
