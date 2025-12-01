@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>KvetchUP & Fries</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <!-- Fixed navigation bar -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        KvetchUP
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="music.html">Music</a>
+        <a href="tour.html">Tour</a>
+        <a href="contact.html">Contact</a>
+        <a href="bookings.html">Bookings</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero-image-section">
+      <div class="container">
+        <img src="images/band_photo_v2.jpg" alt="KvetchUP performing live" class="hero-image" />
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="band-info" class="section reveal">
+      <div class="container section-grid">
+        <div>
+          <p>
+            KvetchUP is a 6-piece klezmer band based in Colorado. Moving seamlessly between energetic dance music and
+            soulful melodies, their goal is to engage communities in meaningful and memorable ways.
+
+            KvetchUP has performed as a featured group with the Lamont Wind Ensemble at the Newman Center for the
+            Performing Arts and at Festo Festo, Denver's monthly klezmer concert. To kvetch is yiddish for to
+            complain... but that's no fun. When they kvetch, it's to UP-lift your spirits!
+          </p>
+        </div>
+        <div class="section-image-wrapper">
+          <!-- Replace this with your own band photo -->
+          <img src="images/band-main.jpg" alt="KvetchUP performing live" class="section-image" />
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <a href="contact.html" class="btn btn-primary cta-button">Contact Us</a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">KvetchUP</span>
+      </div>
+
+      <div class="footer-contact">
+        <a href="mailto:kvetchupband@gmail.com">kvetchupband@gmail.com</a>
+        <span class="footer-divider">•</span>
+        <span>Colorado, USA</span>
+      </div>
+
+      <div class="footer-note">
+        <div class="social-links">
+          <a href="https://instagram.com/kvetchup.band" target="_blank" rel="noreferrer"
+            class="social-link instagram-link">
+            <span class="instagram-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <!-- outer rounded square -->
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                <!-- main circle -->
+                <circle cx="12" cy="12" r="5"></circle>
+                <!-- small top-right circle -->
+                <circle cx="17" cy="7" r="1.5"></circle>
+              </svg>
+            </span>
+            <span class="instagram-handle">kvetchup.band</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const reveals = document.querySelectorAll(".reveal");
+      if (!reveals.length) return;
+
+      // Use IntersectionObserver for reliable scroll detection
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                obs.unobserve(entry.target); // only animate once
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+
+        reveals.forEach(el => observer.observe(el));
+      } else {
+        // Fallback: just show everything
+        reveals.forEach(el => el.classList.add("visible"));
+      }
+    });
+  </script>
+
+
+</body>
+
+</html>

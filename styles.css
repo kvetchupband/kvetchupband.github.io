@@ -1,0 +1,918 @@
+/* Basic reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+:root {
+  --light-text: #F9FAFB;
+  --nav-background:#020617c3; 
+  --header-text: #F9FAFB;
+  --background: #0F172A;
+  --nav-text-hover: #b8b4a3;
+  --btn-primary: #efeee8;
+  --btn-border: #000000;
+  --btn-text: #111827;
+  --nav-underline: #efeee8;
+  --link-color: #ffffff;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --border-subtle: #e5e7eb;
+  --logo-color: #F9FAFB;
+  --tour-background: #f4f0db;
+  --contact-form-background: #2a52be;
+  --member-card-background: #dbeafe;
+
+  /* NEW: actually used in :focus but never defined */
+  --form-focus-border: #38a3d1;
+}
+
+
+body {
+  font-family: "EB Garamond", serif;
+  color: var(--light-text);
+  background-color: var(--background);
+  line-height: 1.6;
+}
+
+main {
+  padding-top: 10px;
+}
+
+/* Layout helpers */
+.container {
+  width: min(1300px, 95%);
+  margin: 0 auto;
+}
+
+/* Header & navigation */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--nav-background);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--logo-color);
+  text-decoration: none;   /* no underline */
+  display: inline-block;   /* behaves like before */
+}
+
+.logo:link,
+.logo:visited {
+  color: var(--logo-color);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.main-nav a {
+  position: relative;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--light-text);
+  text-decoration: none;
+  padding-bottom: 0.2rem;
+}
+
+.main-nav a:hover {
+  color: var(--nav-text-hover);
+}
+
+/* animated underline */
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--nav-underline);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
+}
+
+.main-nav a:hover::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 720px) {
+  main {
+    padding-top: 60px;  /* more space for the double-line header */
+  }}
+
+
+/* Hero section */
+
+.hero-image-section {
+  background-color: var(--background);   /* or whatever you like */
+  padding: 1.5rem 0 2rem;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;                /* fill the container */
+  max-width: none;            /* don't cap it here */
+  border-radius: 1rem;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.5);
+
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: bandFadeIn 2s ease-out 0.4s forwards;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.75rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--btn-primary);
+  border-color: var(--btn-border);
+  color: var(--btn-text);
+}
+
+.btn-primary:hover {
+  background-color: #767676;
+}
+
+/* Sections */
+.section {
+  padding: 3rem 0;
+  background-color: var(--background);
+}
+
+.section h2 {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  margin-bottom: 1rem;
+  color: var(--header-text);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  position: relative;
+}
+
+.section h3 {
+  font-size: clamp(1rem, 3vw, 1.4rem);
+  margin-bottom: 1rem;
+  color: var(--header-text);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  position: relative;
+}
+
+/* subtle accent underline */
+.section h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.4rem;
+  width: 40%;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--nav-underline), transparent);
+}
+
+.section p {
+  color: var(--light-text);
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;       /* was 1.6rem – much more readable */
+  text-align: justify;
+}
+
+.cta-section {
+  padding: 4rem 0 2rem 0;
+  background-color: var(--background);   /* or any color you like */
+  text-align: center;          /* centers inline elements like the button */
+}
+
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.member-card,
+.tour-item {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.member-card:hover,
+.tour-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.18);
+}
+
+
+/* Two-column grid used in About & Contact */
+.section-grid {
+  display: grid;
+  margin: 0 2rem 0 5rem;
+  grid-template-columns: minmax(0, 0.5fr) minmax(0, 0.85fr);
+  gap: 6rem;
+  align-items: center;
+}
+
+/* Images */
+.section-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.section-image {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 1.25rem;
+  object-fit: cover;
+  box-shadow: 0 22px 55px rgba(15, 23, 42, 0.3);
+}
+
+/* Media / Music section */
+
+.section-spacer {
+  height: 40px;
+}
+
+.contact-spacer {
+  height: 80px;
+}
+
+.media-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);  /* one column */
+  gap: 2rem;
+}
+
+/* On wider screens: 2 videos per row */
+@media (min-width: 900px) {
+  .media-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));  /* two equal columns */
+  }
+}
+
+.media-grid h2{
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  color: var(--header-text);
+}
+
+
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+/* Make the iframe fill the wrapper */
+.video-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.media-card {
+  background: #020617;                 /* dark panel that matches the nav */
+  color: var(--light-text);            /* light text on dark */
+  border-radius: 1.25rem;
+  padding: 1rem 1rem 1.25rem;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.6);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.media-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.8);
+}
+
+/* wrapper around the video */
+.media-placeholder {
+  border-radius: 0.9rem;
+  border: none;              /* no light border */
+  padding: 0;
+  overflow: hidden;
+}
+
+/* title + caption inside the card */
+.media-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--light-text);
+  margin-bottom: 0.6rem;
+}
+
+.media-caption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--light-text);
+  opacity: 0.9;
+}
+
+/* Tour section */
+.tour-list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tour-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--tour-background);
+  border-radius: 0.9rem;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.07);
+}
+
+.tour-date {
+  width: 64px;
+  height: 64px;
+  border-radius: 0.85rem;
+  background: var(--background);
+  color: var(--light-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.tour-day {
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tour-month {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+}
+
+.tour-details h3 {
+  color: var(--text-main) !important;
+  font-size: 1rem;
+  margin-bottom: 0.1rem;
+}
+
+.tour-details p {
+  margin-bottom: 0.1rem;
+  color: var(--text-main) !important
+}
+
+.tour-note {
+  font-size: 0.85rem;
+  color: var(--text-main) !important;
+}
+
+/* Contact section */
+.contact-email a {
+  color:var(--light-text);
+  text-decoration: none;
+}
+
+.contact-email a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* new styles for link + icon */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+
+.social-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;                /* matches the link color */
+  transition: transform 0.15s ease;
+}
+
+.social-link:hover .social-icon svg {
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* Contact form */
+.contact-form {
+  background: radial-gradient(circle at top left, #3b82f6 0, #2a52be 40%, #020617 100%);
+  border-radius: 1.25rem;
+  padding: 2rem 1.75rem;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
+  margin-right: 3rem;
+
+  position: relative;
+  transition: padding-bottom 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  color: var(--light-text);
+}
+
+.contact-form:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 60px rgba(15, 23, 42, 0.8);
+}
+
+/* when status is visible */
+.contact-form.form-has-status {
+  padding-bottom: 4.25rem;
+}
+
+/* better behavior on smaller screens */
+@media (max-width: 900px) {
+  .contact-form {
+    margin-right: 0;
+    margin-top: 1.5rem;
+  }
+}
+
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--light-text);  /* was default dark – hard to read on blue */
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* inputs & textareas */
+.form-row input,
+.form-row textarea {
+  width: 100%;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  resize: vertical;
+  background-color: #efeee8;
+  color: var(--text-main);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background-color 0.15s ease,
+    transform 0.1s ease;
+}
+
+.form-row textarea {
+  min-height: 120px;
+}
+
+/* focus state = modern highlight */
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--form-focus-border);
+  box-shadow: 0 0 0 1px rgba(56, 163, 209, 0.5);
+  background-color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.contact-form button[type="submit"] {
+  display: block;
+  margin: 1rem auto 0;
+}
+
+/* optional: tighten up primary button look on dark bg */
+.btn-primary {
+  background-color: var(--btn-primary);
+  border-color: var(--btn-border);
+  color: var(--btn-text);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.45);
+}
+
+.btn-primary:hover {
+  background-color: #dedcd3;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 35px rgba(15, 23, 42, 0.6);
+}
+
+/* Footer */
+.site-footer {
+  background: var(--nav-background);
+  color: var(--light-text);
+  padding: 1.75rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.footer-logo {
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+}
+
+.footer-text {
+  font-size: 0.85rem;
+  color: var(--light-text);
+}
+
+.footer-contact {
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.footer-contact a {
+  color: var(--light-text);
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-divider {
+  opacity: 0.5;
+}
+
+.footer-note {
+  font-size: 0.8rem;
+  color: var(--light-text);
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .section-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-grid > div:last-child {
+    order: -1; /* put images/forms above text on small screens if you like */
+  }
+}
+
+@media (max-width: 720px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    letter-spacing: 0.15em;
+  }
+
+  .tour-item {
+    align-items: flex-start;
+  }
+}
+
+/* Members section */
+.members-section{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.members-section h2 {
+  margin-bottom: 0.75rem;
+}
+
+.members-intro {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+/* Grid of member cards */
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;        /* spacing between cards */
+  margin-top: 2rem;   /* spacing above the first row */
+}
+
+/* Individual member card */
+.member-card {
+  background: var(--member-card-background);
+  border-radius: 1.25rem;
+  padding: 1.5rem 1.25rem 1.75rem;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.12);
+  text-align: center;
+}
+
+.member-image-wrapper {
+  width: 250px;
+  height: 300px;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.25);
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+    filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.member-card:hover .member-image {
+  filter: grayscale(0%);
+}
+
+
+.member-name {
+  color: var(--text-main) !important;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.member-role {
+  text-align: center !important;
+  font-size: 1rem;
+  color: var(--text-main) !important;
+  margin-bottom: 0.6rem;
+}
+
+
+.member-bio {
+  font-size: 0.95rem !important;
+  color: var(--text-main) !important;
+  text-align: justify !important;
+}
+
+/* Small-screen tweaks (optional) */
+@media (max-width: 600px) {
+  .sub-hero-title {
+    letter-spacing: 0.04em;
+  }
+
+  .member-card {
+    padding: 1.25rem 1rem 1.5rem;
+  }
+
+  .member-image-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+.social-links {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* link styling */
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  text-decoration: underline;
+}
+
+/* Instagram logo container */
+.instagram-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Instagram-style gradient */
+  background:
+    radial-gradient(circle at 30% 30%, #fdf497 0, #fdf497 15%, transparent 16%),
+    radial-gradient(circle at 30% 110%, #fdf497 0, #fdf497 15%, transparent 16%),
+    linear-gradient(45deg, #fd5949, #d6249f, #285AEB);
+}
+
+/* camera glyph inside the logo */
+.instagram-icon svg {
+  width: 70%;
+  height: 70%;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.8;
+}
+
+/* optional hover effect */
+.social-link:hover .instagram-icon svg {
+  transform: translateY(-1px);
+  transition: transform 0.15s ease;
+}
+
+
+/* Footer base (you already have something like this) */
+.site-footer {
+  background: #020617;
+  color: #e5e7eb;
+  padding: 1.75rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.footer-note {
+  font-size: 0.8rem;
+  color: #9ca3af;
+}
+
+/* SOCIAL LINKS (footer + contact) */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+/* In the footer, make text light so it’s visible on dark bg */
+.site-footer .social-link,
+.site-footer .instagram-handle {
+  color: #e5e7eb;
+}
+
+/* Instagram logo block */
+.instagram-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Instagram-style gradient */
+  background:
+    radial-gradient(circle at 20% 100%, #fdf497 0, #fdf497 10%, transparent 56%),
+    linear-gradient(45deg, #fd5949, #d6249f, #285AEB);
+}
+
+/* Camera glyph inside logo */
+.instagram-icon svg {
+  width: 70%;
+  height: 70%;
+  fill: none !important;
+  stroke: #ffffff !important;
+  stroke-width: 1.8;
+}
+
+/* Hover effect */
+.site-footer .social-link:hover .instagram-handle {
+  text-decoration: underline;
+}
+
+.site-footer .social-link:hover .instagram-icon svg {
+  transform: translateY(-1px);
+  transition: transform 0.15s ease;
+}
+
+
+@keyframes bandFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.form-status {
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  bottom: 1.25rem;
+
+  font-size: 0.9rem;
+  border-radius: 0.75rem;
+  padding: 0.6rem 0.9rem;
+
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1;
+}
+
+.form-status.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.form-status--success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.form-status--error {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+
+
