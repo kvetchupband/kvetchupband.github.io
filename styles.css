@@ -78,6 +78,17 @@ iframe {
   border-bottom: 1px solid rgba(148, 163, 184, 0.3);
 }
 
+.site-header .container {
+  padding-inline: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .site-header .container {
+    padding-inline: 1.75rem;
+    /* still roomy but comfy on tiny screens */
+  }
+}
+
 .nav-container {
   display: flex;
   align-items: center;
@@ -138,51 +149,35 @@ iframe {
   transform: scaleX(1);
 }
 
-/* HAMBURGER BASE (hidden on desktop by default) */
-/* HAMBURGER BASE (hidden on desktop by default) */
 .nav-toggle {
   display: none;
   background: transparent;
   border: none;
   padding: 0.4rem;
-  /* was 0.25rem – a bit more click area */
+  /* a bit more tap area */
   margin-left: auto;
-  margin-right: 0.4rem;
-  /* NEW: pull it slightly away from the right edge */
   cursor: pointer;
 }
 
 .nav-toggle span {
   display: block;
-  width: 22px;
+  width: 18px;
+  /* was 22px – slightly smaller so X stays inside */
   height: 2px;
   border-radius: 999px;
   background: var(--light-text);
   transform-origin: center;
-  /* NEW: rotations stay centered */
+  /* ensures rotation stays centered */
   transition:
     transform 0.2s ease,
     opacity 0.2s ease;
 }
 
 .nav-toggle span+span {
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
 
-
-.site-header .container {
-  padding-inline: 1.5rem;
-}
-
-@media (max-width: 720px) {
-  .site-header .container {
-    padding-inline: 1.75rem;
-    /* still roomy but comfy on tiny screens */
-  }
-}
-
-/* MOBILE NAV: hamburger + dropdown */
 /* MOBILE NAV: hamburger + dropdown */
 @media (max-width: 720px) {
 
@@ -242,7 +237,7 @@ iframe {
 
   /* Animate icon into an "X" when open */
   body.nav-open .nav-toggle span:nth-child(1) {
-    transform: translateY(5px) rotate(45deg);
+    transform: translateY(4px) rotate(45deg);
   }
 
   body.nav-open .nav-toggle span:nth-child(2) {
@@ -250,7 +245,7 @@ iframe {
   }
 
   body.nav-open .nav-toggle span:nth-child(3) {
-    transform: translateY(-5px) rotate(-45deg);
+    transform: translateY(-4px) rotate(-45deg);
   }
 }
 
@@ -408,11 +403,11 @@ iframe {
 
 /* .section-spacer {
   height: 40px;
-}
+} */
 
 .contact-spacer {
   height: 80px;
-} */
+}
 
 .media-grid {
   margin-top: 2rem;
