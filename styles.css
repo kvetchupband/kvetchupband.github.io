@@ -51,7 +51,7 @@ main {
 
 /* Layout helpers */
 .container {
-  width: 100%;
+  width: 95%;
   margin: 0 auto;
   padding-inline: 1rem;
   /* side padding so content doesn't hug edges on phones */
@@ -145,27 +145,26 @@ iframe {
 
 /* HAMBURGER BASE (hidden on desktop by default) */
 .nav-toggle {
-  display: none;
-  /* shown only on mobile via media query */
-  position: relative;
-  /* so spans can be absolutely positioned */
+  display: none;              /* shown only on mobile via media query */
+  position: relative;         /* so spans can be absolutely positioned */
   width: 32px;
   height: 32px;
   padding: 0;
-  margin-left: auto;
-  /* push it to the right, inside container padding */
+  margin-left: auto;          /* pushes button to the right inside container */
+  border: none;
+  background-color: transparent;  /* <<< NO visible box color */
   cursor: pointer;
 }
 
+/* the three bars */
 .nav-toggle span {
   position: absolute;
   left: 50%;
   width: 20px;
   height: 2px;
   border-radius: 999px;
-  background: var(--light-text);
+  background-color: var(--light-text); /* <<< same as your nav text */
   transform: translateX(-50%);
-  /* center horizontally in the button */
   transform-origin: center;
   transition:
     transform 0.2s ease,
@@ -184,6 +183,7 @@ iframe {
 .nav-toggle span:nth-child(3) {
   top: 20px;
 }
+
 
 
 /* MOBILE NAV: hamburger + dropdown */
