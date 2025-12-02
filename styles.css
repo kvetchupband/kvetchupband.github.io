@@ -639,9 +639,6 @@ iframe {
   border-radius: 1.25rem;
   padding: 2rem 1.75rem;
   box-shadow: 0 18px 45px rgba(15, 23, 42, 0.65);
-  margin-right: 0;
-  margin-top: 2rem;
-  width: 80%;
 
   position: relative;
   transition: padding-bottom 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
@@ -1076,4 +1073,40 @@ iframe {
 
 .bookings-section h3 {
   margin-top: 2rem;   /* space before each heading */
+}
+
+
+/* CONTACT PAGE – single column, centered form */
+#contact .container {
+  max-width: 720px;          /* reasonable content width */
+}
+
+/* override the generic 2-column grid just for contact */
+#contact .section-grid {
+  display: flex;             /* stack items vertically instead of grid columns */
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.75rem;              /* space between header/text and form */
+  margin-top: 1.25rem;
+}
+
+/* make each child take full width of the container */
+#contact .section-grid > * {
+  width: 100%;
+}
+
+/* center the heading/intro text */
+#contact h2 {
+  text-align: center;
+}
+
+#contact p {
+  text-align: center;
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+/* form fills the column nicely */
+#contact .contact-form {
+  width: 100%;
 }
