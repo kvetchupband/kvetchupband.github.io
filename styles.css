@@ -31,6 +31,10 @@
   --form-focus-border: #38a3d1;
 }
 
+html {
+  height: 100%;
+}
+
 
 body {
   font-family: "EB Garamond", serif;
@@ -47,6 +51,8 @@ main {
   padding-top: 60px;
   /* enough space for the fixed header on desktop */
   flex: 1 0 auto;
+  display: flex;          /* so its children stack vertically */
+  flex-direction: column;
 }
 
 /* Layout helpers */
@@ -717,14 +723,11 @@ iframe {
   box-shadow: 0 14px 35px rgba(15, 23, 42, 0.6);
 }
 
-/* Footer */
 .site-footer {
-  background: var(--nav-background);
+  background: #020617;           /* or var(--nav-background) if you prefer */
   color: var(--light-text);
   padding: 1.75rem 0;
-  flex-shrink: 0;
-  /* NEW */
-
+  margin-top: auto;              /* <- pushes footer to bottom in the flex column */
 }
 
 .footer-inner {
@@ -820,7 +823,7 @@ iframe {
 /* Grid of member cards */
 .members-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2.5rem;
   /* spacing between cards */
   margin-top: 2rem;
@@ -946,12 +949,6 @@ iframe {
 }
 
 
-/* Footer base (you already have something like this) */
-.site-footer {
-  background: #020617;
-  color: #e5e7eb;
-  padding: 1.75rem 0;
-}
 
 .footer-inner {
   display: flex;

@@ -38,102 +38,104 @@
   </header>
 
 
-  <section class="contact-spacer"> </section>
+  <main>
+    <section class="contact-spacer"> </section>
 
-  <!-- Contact section -->
-  <section id="contact" class="section">
-    <div class="container section-grid">
-      <div>
-        <h2>Contact</h2>
-        <p>
-          Use this section for general inquiries, press, and questions about the band.
-        </p>
+    <!-- Contact section -->
+    <section id="contact" class="section">
+      <div class="container section-grid">
+        <div>
+          <h2>Contact</h2>
+          <p>
+            Use this section for general inquiries, press, and questions about the band.
+          </p>
 
-        <p class="contact-email">
-          Email: <a href="mailto:kvetchupband@gmail.com">kvetchupband@gmail.com</a>
-        </p>
+          <p class="contact-email">
+            Email: <a href="mailto:kvetchupband@gmail.com">kvetchupband@gmail.com</a>
+          </p>
 
 
-        <!-- <div class="social-links">
+          <!-- <div class="social-links">
                     <a href="https://instagram.com" target="_blank" rel="noreferrer">
                         Instagram
                     </a>
                 </div> -->
+        </div>
+
+        <div>
+          <form class="contact-form" method="POST"
+            action="https://script.google.com/macros/s/AKfycbxes4DeyBWGH-muP_Z8fNL3gzvOFbw4QdTb3lauw5q5XF4NDlWo5x7Z-MmxPgT_vAUa/exec">
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" type="text" name="name" placeholder="Your name" />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="you@example.com" />
+            </div>
+
+            <div class="form-row">
+              <label for="event-type">What type of event are you hosting?</label>
+              <input id="event-type" type="text" name="etype" placeholder="e.g. Wedding, bar/bat mitzvah" />
+            </div>
+
+            <div class="form-row">
+              <label for="etime">When and where is the event occurring?</label>
+              <input id="event-time-location" type="text" name="etime" placeholder="Date and location" />
+            </div>
+
+
+            <div class="form-row">
+              <label for="message">Additional Information/Questions</label>
+              <textarea id="message" name="message" rows="2"
+                placeholder="Tell us more about your event or any questions that you have"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send</button>
+
+            <div class="form-status" aria-live="polite" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="footer-logo">KvetchUP</span>
       </div>
 
-      <div>
-        <form class="contact-form" method="POST"
-          action="https://script.google.com/macros/s/AKfycbxes4DeyBWGH-muP_Z8fNL3gzvOFbw4QdTb3lauw5q5XF4NDlWo5x7Z-MmxPgT_vAUa/exec">
-          <div class="form-row">
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name" placeholder="Your name" />
-          </div>
+      <div class="footer-contact">
+        <a href="mailto:kvetchupband@gmail.com">kvetchupband@gmail.com</a>
+        <span class="footer-divider">•</span>
+        <span>Colorado, USA</span>
+      </div>
 
-          <div class="form-row">
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" placeholder="you@example.com" />
-          </div>
-
-          <div class="form-row">
-            <label for="event-type">What type of event are you hosting?</label>
-            <input id="event-type" type="text" name="etype" placeholder="e.g. Wedding, bar/bat mitzvah" />
-          </div>
-
-          <div class="form-row">
-            <label for="etime">When and where is the event occurring?</label>
-            <input id="event-time-location" type="text" name="etime" placeholder="Date and location" />
-          </div>
-
-
-          <div class="form-row">
-            <label for="message">Additional Information/Questions</label>
-            <textarea id="message" name="message" rows="2"
-              placeholder="Tell us more about your event or any questions that you have"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Send</button>
-
-          <div class="form-status" aria-live="polite" role="status"></div>
-        </form>
+      <div class="footer-note">
+        <div class="social-links">
+          <a href="https://instagram.com/kvetchup.band" target="_blank" rel="noreferrer"
+            class="social-link instagram-link">
+            <span class="instagram-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <!-- outer rounded square -->
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                <!-- main circle -->
+                <circle cx="12" cy="12" r="5"></circle>
+                <!-- small top-right circle -->
+                <circle cx="17" cy="7" r="1.5"></circle>
+              </svg>
+            </span>
+            <span class="instagram-handle">kvetchup.band</span>
+          </a>
+        </div>
       </div>
     </div>
-  </section>
-
-
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <span class="footer-logo">KvetchUP</span>
-            </div>
-
-            <div class="footer-contact">
-                <a href="mailto:kvetchupband@gmail.com">kvetchupband@gmail.com</a>
-                <span class="footer-divider">•</span>
-                <span>Colorado, USA</span>
-            </div>
-
-            <div class="footer-note">
-                <div class="social-links">
-                    <a href="https://instagram.com/kvetchup.band" target="_blank" rel="noreferrer"
-                        class="social-link instagram-link">
-                        <span class="instagram-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24">
-                                <!-- outer rounded square -->
-                                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
-                                <!-- main circle -->
-                                <circle cx="12" cy="12" r="5"></circle>
-                                <!-- small top-right circle -->
-                                <circle cx="17" cy="7" r="1.5"></circle>
-                            </svg>
-                        </span>
-                        <span class="instagram-handle">kvetchup.band</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
+  </footer>
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
