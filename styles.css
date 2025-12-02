@@ -51,10 +51,10 @@ main {
 
 /* Layout helpers */
 .container {
-  width: 95%;
+  width: 100%;
+  max-width: 1400px;        /* nice max width for desktop */
   margin: 0 auto;
-  padding-inline: 1rem;
-  /* side padding so content doesn't hug edges on phones */
+  padding-inline: 1rem;     /* side padding on mobile/desktop */
 }
 
 img,
