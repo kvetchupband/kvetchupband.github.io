@@ -1211,3 +1211,24 @@ iframe {
     justify-content: center;
   }
 }
+
+.form-privacy-note {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: var(--light-text);
+  opacity: 0.9;
+}
+
+.form-privacy-note a {
+  color: var(--light-text);
+  text-decoration: underline;
+}
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+}
