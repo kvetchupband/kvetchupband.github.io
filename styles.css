@@ -1124,3 +1124,48 @@ iframe {
     order: 0;                   /* reset any reordering */
   }
 }
+
+/* Privacy page */
+.privacy-container {
+  max-width: 850px;
+}
+
+.privacy-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.privacy-section h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--header-text);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.privacy-section h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--header-text);
+  font-size: 1.1rem;
+}
+
+.privacy-section p {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.privacy-section a {
+  color: var(--light-text);
+  text-decoration: underline;
+}
+
+.privacy-section code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.1rem 0.3rem;
+  border-radius: 0.25rem;
+}
+
+.privacy-effective-date {
+  opacity: 0.9;
+}
