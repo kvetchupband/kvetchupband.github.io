@@ -1213,8 +1213,8 @@ iframe {
 }
 
 .form-privacy-note {
-  margin-top: 0.75rem;
-  font-size: 0.75rem;        /* smaller */
+  margin-top: 1rem;
+  font-size: 0.5rem;        /* smaller */
   line-height: 1.35;
   text-align: center;
   color: var(--light-text);
