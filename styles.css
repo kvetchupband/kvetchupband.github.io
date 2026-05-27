@@ -955,76 +955,6 @@ iframe {
 }
 
 
-
-.footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
-.footer-note {
-  font-size: 0.8rem;
-  color: #9ca3af;
-}
-
-/* SOCIAL LINKS (footer + contact) */
-
-.social-links {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  text-decoration: none;
-}
-
-/* In the footer, make text light so it’s visible on dark bg */
-.site-footer .social-link,
-.site-footer .instagram-handle {
-  color: #e5e7eb;
-}
-
-/* Instagram logo block */
-.instagram-icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 0.4rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  /* Instagram-style gradient */
-  background:
-    radial-gradient(circle at 20% 100%, #fdf497 0, #fdf497 10%, transparent 56%),
-    linear-gradient(45deg, #fd5949, #d6249f, #285AEB);
-}
-
-/* Camera glyph inside logo */
-.instagram-icon svg {
-  width: 70%;
-  height: 70%;
-  fill: none !important;
-  stroke: #ffffff !important;
-  stroke-width: 1.8;
-}
-
-/* Hover effect */
-.site-footer .social-link:hover .instagram-handle {
-  text-decoration: underline;
-}
-
-.site-footer .social-link:hover .instagram-icon svg {
-  transform: translateY(-1px);
-  transition: transform 0.15s ease;
-}
-
-
 @keyframes bandFadeIn {
   from {
     opacity: 0;
@@ -1078,7 +1008,7 @@ iframe {
 
 /* CONTACT PAGE – single column, centered form */
 #contact .container {
-  max-width: 1300x;          /* reasonable content width */
+  max-width: 1300px;          /* reasonable content width */
 }
 
 /* override the generic 2-column grid just for contact */
@@ -1168,4 +1098,116 @@ iframe {
 
 .privacy-effective-date {
   opacity: 0.9;
+}
+
+
+/* Footer */
+.site-footer {
+  background: #020617;
+  color: var(--light-text);
+  padding: 1.5rem 0;
+  margin-top: auto;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  font-size: 1rem;
+  color: var(--light-text);
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.footer-contact a {
+  color: var(--light-text);
+  text-decoration: none;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+.footer-divider {
+  opacity: 0.5;
+}
+
+.footer-note {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+}
+
+.site-footer .social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--light-text);
+  text-decoration: none;
+}
+
+.site-footer .social-link:hover {
+  text-decoration: underline;
+}
+
+.instagram-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at 20% 100%, #fdf497 0, #fdf497 10%, transparent 56%),
+    linear-gradient(45deg, #fd5949, #d6249f, #285aeb);
+}
+
+.instagram-icon svg {
+  width: 70%;
+  height: 70%;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 1.8;
+}
+
+/* Mobile footer */
+@media (max-width: 720px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+    gap: 0.9rem;
+  }
+
+  .footer-contact {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .footer-contact .footer-divider {
+    display: none;
+  }
+
+  .footer-note {
+    justify-content: center;
+  }
 }
