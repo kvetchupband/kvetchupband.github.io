@@ -1234,3 +1234,22 @@ iframe {
 .form-privacy-note a:hover {
   opacity: 1;
 }
+
+
+/* Hide anti-spam honeypot field from real users */
+.hp-field {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+}
+
+.hp-field input,
+.hp-field label {
+  position: absolute !important;
+  left: -10000px !important;
+}
